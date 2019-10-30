@@ -4,9 +4,8 @@ Using Ubuntu 19.10
 
 requirements:
 
-i3-gaps:
+i3-gaps(border_radius pr):
 
-border-radius pr
 pywal
 feh
 compton
