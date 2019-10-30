@@ -3,6 +3,10 @@
 
 config_version: 2
 settings:
+  backend:
+    global: webengine
+  downloads.position:
+    global: bottom
   tabs.favicons.scale:
     global: 1.5
   tabs.padding:
