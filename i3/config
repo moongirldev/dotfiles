@@ -13,44 +13,51 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-#font pango:monospace 8
+font pango:Fira Mono 11
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:DejaVu Sans Mono 9
+#font pango:DejaVu Sans Mono 8
 
-#Start polybar and set background
-exec_always --no-startup-id wal -R
-exec_always --no-startup-id feh --bg-fill "$(< "${HOME}/.cache/wal/wal")"
-#exec --no-startup-id compton --opacity-rule '100:window_type = "dock" && class_g = "i3bar"' --config ~/.config/compton.conf -b
-exec --no-startup-id compton
-exec --no-startup-id /home/gobolin/.i3/polybar &
-exec_always xinput set-prop 13 308 1
-exec_always xinput set-prop 13 304 1
+# The combination of xss-lock, nm-applet and pactl is a popular choice, so
+# they are included here as an example. Modify as you see fit.
 
-#exec xautolock -time 7 -locker 'i3lock  -B=sigma -S=0 -k --color=000000 --timecolor=ffffffff --datecolor=ffffffff --insidecolor=41303d33 --ringcolor=41303dff --keyhlcolor=ff0086ff --bshlcolor=ff008644 --insidevercolor=1dddc433 --ringvercolor=1dddc4ff --verifcolor=ffffffff --radius 95 & sleep 1.5 && systemctl suspend'
+# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
+# screen before suspend. Use loginctl lock-session to lock your screen.
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
-#startup programs
-exec steam
+# NetworkManager is the most popular way to manage wireless networks on Linux,
+# and nm-applet is a desktop environment-independent system tray GUI for it.
+exec --no-startup-id nm-applet
+exec_always /home/gobolin/.config/polybar/launch.sh
+exec wal -R
+
+exec /home/gobolin/.config/picom/launch.sh
+
+# Use pactl to adjust volume in PulseAudio.
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+c kill
 
-# start rofi (a program launcher)
-
-bindsym $mod+d exec rofi -modi run -show drun -font "terminus 10"
-
-bindsym $mod+Tab exec rofi -modi run -show window -font "terminus 10"
-
-bindsym $mod+Shift+d exec rofi -show run -font "terminus 10"
-
-bindym $mod+shift+w exec chromium
+# start dmenu (a program launcher)
+bindsym $mod+d exec rofi -show drun -font "unscii 12"
+bindsym $mod+a exec pavucontrol
+bindsym $mod+b exec bwmenu
+# There also is the (new) i3-dmenu-desktop which only displays applications
+# shipping a .desktop file. It is a wrapper around dmenu, so you need that
+# installed.
+# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+j focus left
@@ -90,14 +97,15 @@ bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
-# toggle tiling / floating
+# toggle tiling / floating 
+
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+#bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -116,34 +124,33 @@ set $ws9 "9"
 set $ws10 "10"
 
 # switch to workspace
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
-bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace $ws6
-bindsym $mod+7 workspace $ws7
-bindsym $mod+8 workspace $ws8
-bindsym $mod+9 workspace $ws9
-bindsym $mod+0 workspace $ws10
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $ws1
-bindsym $mod+Shift+2 move container to workspace $ws2
-bindsym $mod+Shift+3 move container to workspace $ws3
-bindsym $mod+Shift+4 move container to workspace $ws4
-bindsym $mod+Shift+5 move container to workspace $ws5
-bindsym $mod+Shift+6 move container to workspace $ws6
-bindsym $mod+Shift+7 move container to workspace $ws7
-bindsym $mod+Shift+8 move container to workspace $ws8
-bindsym $mod+Shift+9 move container to workspace $ws9
-bindsym $mod+Shift+0 move container to workspace $ws10
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-#bindsym $mod+Shift+r restart
-bindsym $mod+Shift+r exec i3-msg restart && /home/gobolin/.i3/polybar &
+bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
@@ -174,27 +181,27 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-for_window [class="^.*"] border pixel 0
+for_window [title="Volume Control"] floating enable
 
-#bindsym $mod+Shift+G gaps inner all set 5
+for_window [class=".*"] border pixel 3
 
-#smart_borders on
-#smart_gaps on
 
-assign [class="Steam"] $ws6
+# class                 border  bground text    indicator child_border
+client.focused          #33000000 #000000 #FFFFFF #333333   #FF333333
+client.focused_inactive #33000000 #000000 #FFFFFF #484E50   #33000000
+client.unfocused        #33000000 #222222 #888888 #292D2E   #33000000
+client.urgent           #33000000 #900000 #FFFFFF #900000   #33000000
+client.placeholder      #33000000 #0C0C0C #FFFFFF #000000   #FF000000
 
-set_from_resource $border color14 #ffffff
-set_from_resource $uforderuf color6 #222222
-set_from_resource $background color0 #000000
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
 
-# colour of border, background, text, indicator, and child_border 
-client.focused              $border $background $border $border $border
-client.focused_inactive     $uforderuf $background $uforderuf #222222 #222222
-client.unfocused            $uforderuf $background $uforderuf $uforderuf $uforderuf
+gaps inner 10
+gaps outer 0
 
-#gaps inner 10
-#bindsym $mod+Shift+G gaps outer set 4
-gaps inner 7
-#gaps outer -1
+smart_gaps on
+smart_borders no_gaps
 
-border_radius 10
+border_radius 0
+
+exec_always picom --experimental-backends

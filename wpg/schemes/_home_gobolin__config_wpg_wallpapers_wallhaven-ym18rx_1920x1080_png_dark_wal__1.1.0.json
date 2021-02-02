@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/gobolin/.config/wpg/wallpapers/wallhaven-ym18rx_1920x1080.png",
+    "alpha": "100",
+
+    "special": {
+        "background": "#0d0f11",
+        "foreground": "#e2dedf",
+        "cursor": "#e2dedf"
+    },
+    "colors": {
+        "color0": "#0d0f11",
+        "color1": "#BB7D86",
+        "color2": "#748896",
+        "color3": "#A49AA3",
+        "color4": "#D58D95",
+        "color5": "#CBADB3",
+        "color6": "#B9BCCB",
+        "color7": "#e2dedf",
+        "color8": "#9e9b9c",
+        "color9": "#BB7D86",
+        "color10": "#748896",
+        "color11": "#A49AA3",
+        "color12": "#D58D95",
+        "color13": "#CBADB3",
+        "color14": "#B9BCCB",
+        "color15": "#e2dedf"
+    }
+}

@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/gobolin/.config/wpg/wallpapers/qwe_download.jpg",
+    "alpha": "100",
+
+    "special": {
+        "background": "#151210",
+        "foreground": "#f9ffff",
+        "cursor": "#f9ffff"
+    },
+    "colors": {
+        "color0": "#151210",
+        "color1": "#3B99C2",
+        "color2": "#3B829C",
+        "color3": "#6D93A4",
+        "color4": "#3592BB",
+        "color5": "#9A9EA1",
+        "color6": "#54AAC9",
+        "color7": "#d1dbda",
+        "color8": "#312a25",
+        "color9": "#3ccdff",
+        "color10": "#3eafd8",
+        "color11": "#7bc5e6",
+        "color12": "#35c3ff",
+        "color13": "#b3d0e5",
+        "color14": "#5ae5ff",
+        "color15": "#f9ffff"
+    }
+}
