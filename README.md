@@ -9,8 +9,10 @@ pywal
 wpgtk
 feh
 picom
+conky
 polybar
 playerctl
+nerd-fonts-mononoki
 
 zsh (zinit)
 
