@@ -1,6 +1,6 @@
 # dotfiles
 
-##Using Arch Linux
+## Using Arch Linux
 
 requirements:
 bspwm
