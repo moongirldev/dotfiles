@@ -1,6 +1,6 @@
 # dotfiles
 
-Using Ubuntu 19.10
+##Using Arch Linux
 
 requirements:
 bspwm
@@ -13,7 +13,5 @@ conky
 polybar
 playerctl
 nerd-fonts-mononoki
-
 zsh (zinit)
-
 qutebrowser
