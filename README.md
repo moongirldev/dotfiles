@@ -10,4 +10,8 @@ wpgtk
 feh
 picom
 polybar
+playerctl
+
 zsh (zinit)
+
+qutebrowser
