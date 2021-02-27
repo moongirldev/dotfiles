@@ -29,8 +29,8 @@ padding-right = 0
 module-margin-left = 0
 module-margin-right = 0
 
-font-0 = pointfree:style=Bold:fontformat=truetype:size=10;1
-;font-1 = FontAwesome5Free:style=Regular:size=10;2
+font-0 = pointfree:style=Regular:fontformat=truetype:size=10;1
+;font-1 = FontAwesome5Free:style=Regular:size=9;2
 
 modules-left = xwindow
 modules-center = bspwm
@@ -59,14 +59,14 @@ label-line-color = #f00
 border-size = 0
 border-color = #00000000
 
-padding-left = 0
+padding-left = 1
 padding-right = 0
 
 module-margin-left = 0
 module-margin-right = 0
 
 font-0 = pointfree:style=Bold:fontformat=truetype:size=10;1
-font-1 = MononokiNerdFont:style=Regular:size=10;2
+font-1 = MononokiNerdFont:style=Regular:size=9;2
 
 modules-left = player-prev spotify-play-pause player-next player
 modules-center = 
@@ -109,7 +109,7 @@ label-empty-padding = 1
 type = custom/script
 tail = true
 ; prefix symbol is shown before the text
-format-prefix = "%{T2}  "
+format-prefix = " %{T2}  "
 format = "%{T1}<label> %{T2} %{T1}"
 exec = ~/.config/polybar/scripts/scroll_spotify_status.sh
 

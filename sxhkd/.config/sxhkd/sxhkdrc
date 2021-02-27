@@ -4,11 +4,11 @@
 
 # terminal emulator
 super + Return
-	gnome-terminal
+	kitty
 
 # program launcher
 super + d
-	rofi -show drun -font "monospace 11"
+	rofi -show drun -font "pointfree Regular 11"
 
 #media control
 XF86AudioPlay
@@ -44,8 +44,8 @@ super + y
 	bspc node newest.marked.local -n newest.!automatic.local
 
 # swap the current node and the biggest node
-super + g
-	bspc node -s biggest
+#super + g
+#	bspc node -s biggest
 
 #
 # state/flags
@@ -54,7 +54,8 @@ super + g
 # set the window state
 super + {t,shift + t,s,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
-
+super + g
+    tabc.sh $(bspc query -N -n west) add $(bspc query -N -n focused)
 # set the node flags
 super + ctrl + {m,x,y,z}
 	bspc node -g {marked,locked,sticky,private}
@@ -72,7 +73,7 @@ super + {p,b,comma,period}
 	bspc node -f @{parent,brother,first,second}
 
 # focus the next/previous node in the current desktop
-super + {_,shift + }c
+super + {_,shift + }v
 	bspc node -f {next,prev}.local
 
 # focus the next/previous desktop in the current monitor

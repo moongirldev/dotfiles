@@ -46,8 +46,8 @@ zinit ice wait"0" lucid atload"geometry::prompt"
 zinit light geometry-zsh/geometry
 
 GEOMETRY_PROMPT=(geometry_status geometry_path) # redefine left prompt
-GEOMETRY_RPROMPT+=(geometry_exec_time pwd)      # append exec_time and pwd right prompt
-GEOMETRY_TITLE=("hello world")
+GEOMETRY_RPROMPT+=(geometry_exec_time)      # append exec_time and pwd right prompt
+GEOMETRY_TITLE=(geometry_node)
 
 GEOMETRY_STATUS_SYMBOL="ﳝ"             # default prompt symbol
 GEOMETRY_STATUS_SYMBOL_ERROR="ﳞ"       # displayed when exit value is != 0
@@ -60,3 +60,8 @@ zinit load zsh-users/zsh-autosuggestions
 
 #zinit load marlonrichert/zsh-autocomplete
 #zstyle ':autocomplete:tab:*' widget-style menu-complete
+
+. "/home/gobolin/.local/share/lscolors.sh"
+alias ls='ls --color=auto'
+alias ll='ls -l --color=auto'
+alias la='ls -a --color=auto'

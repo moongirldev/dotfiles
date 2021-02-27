@@ -2,8 +2,8 @@
 
 sxhkd &
 /home/gobolin/.config/picom/launch.sh &
-polybar wpgtk &
-polybar bottom &
+polybar -r wpgtk &
+polybar -r bottom &
 conky &
 wal -R &
 #panel &
@@ -25,4 +25,4 @@ bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
-slack &
+# lxsession &
