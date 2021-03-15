@@ -17,7 +17,6 @@ foreground = ${colors.foreground}
 
 line-size = 2
 label-line-color = ${colors.highlight}
-label-line-color = #4000
 
 wm-restack = bspwm
 padding-left = 0
