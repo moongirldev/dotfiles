@@ -6,7 +6,6 @@ inactive = #67444a
 alert = ${xrdb
 
 [bar/wpgtk]
-monitor = ${env:MONITOR:DP-4.8}
 width = 100%
 height = 22
 offset-y = 0%
@@ -18,9 +17,8 @@ foreground = ${colors.foreground}
 
 line-size = 2
 label-line-color = ${colors.highlight}
+label-line-color = #4000
 
-border-top-size = 0
-;border-color = ${colors.foreground}
 wm-restack = bspwm
 padding-left = 0
 padding-right = 0
@@ -40,7 +38,7 @@ tray-position = none
 ;tray-background = ${colors.inactive}
 
 [bar/bottom]
-monitor = ${env:MONITOR:DP-4.8}
+;monitor = ${env:MONITOR:primary}
 width = 100%
 height = 24
 offset-y = 0%
