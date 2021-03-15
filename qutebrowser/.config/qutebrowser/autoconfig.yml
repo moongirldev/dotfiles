@@ -10,15 +10,20 @@ settings:
     global: webengine
   content.notifications:
     https://app.slack.com: true
+    https://calendar.google.com: true
     https://decider.com: false
     https://fontsly.com: false
     https://mail.google.com: true
+    https://pdfdatabase.top: false
     https://www.aliexpress.com: false
     https://www.banggood.com: false
     https://www.reddit.com: false
     https://www.vans.com.au: false
     https://www.youtube.com: false
+  content.pdfjs:
+    global: true
   content.register_protocol_handler:
+    https://calendar.google.com?cid=%25s: true
     https://mail.google.com?extsrc=mailto&url=%25s: true
   downloads.location.directory:
     global: ~/Downloads
