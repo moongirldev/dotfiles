@@ -44,10 +44,11 @@ zinit light-mode for \
 GEOMETRY_COLOR_DIR=152
 zinit ice wait"0" lucid atload"geometry::prompt"
 zinit light geometry-zsh/geometry
+zinit light jedahan/geometry-hydrate
 
-GEOMETRY_PROMPT=(geometry_status geometry_path) # redefine left prompt
-GEOMETRY_RPROMPT+=(geometry_exec_time)      # append exec_time and pwd right prompt
-GEOMETRY_TITLE=(geometry_node)
+GEOMETRY_PROMPT=(geometry_status geometry_hostname geometry_newline geometry_path) # redefine left prompt
+GEOMETRY_RPROMPT+=(geometry_exec_time geometry_git hydrate)      # append exec_time and pwd right prompt
+GEOMETRY_TITLE=(geometry_hostname)
 
 GEOMETRY_STATUS_SYMBOL="ﳝ"             # default prompt symbol
 GEOMETRY_STATUS_SYMBOL_ERROR="ﳞ"       # displayed when exit value is != 0
