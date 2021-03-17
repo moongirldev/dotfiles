@@ -46,8 +46,9 @@ zinit ice wait"0" lucid atload"geometry::prompt"
 zinit light geometry-zsh/geometry
 zinit light jedahan/geometry-hydrate
 
+GEOMETRY_PROMPT_PLUGINS+=(hydrate)
 GEOMETRY_PROMPT=(geometry_status geometry_hostname geometry_newline geometry_path) # redefine left prompt
-GEOMETRY_RPROMPT+=(geometry_exec_time geometry_git hydrate)      # append exec_time and pwd right prompt
+GEOMETRY_RPROMPT+=(geometry_exec_time geometry_git)      # append exec_time and pwd right prompt
 GEOMETRY_TITLE=(geometry_hostname)
 
 GEOMETRY_STATUS_SYMBOL="ﳝ"             # default prompt symbol
@@ -55,6 +56,10 @@ GEOMETRY_STATUS_SYMBOL_ERROR="ﳞ"       # displayed when exit value is != 0
 GEOMETRY_STATUS_COLOR_ERROR="yellow"  # prompt symbol color when exit value is != 0
 GEOMETRY_STATUS_COLOR="default"        # prompt symbol color
 GEOMETRY_STATUS_COLOR_ROOT="red"       # root prompt symbol color
+
+GEOMETRY_PLUGIN_HYDRATE_COLOR=blue
+GEOMETRY_PLUGIN_HYDRATE_SYMBOL=💧
+GEOMETRY_PLUGIN_HYDRATE_INTERVAL=20  # interval in minutes
 
 zinit load MichaelAquilina/zsh-auto-notify
 zinit load zsh-users/zsh-autosuggestions
