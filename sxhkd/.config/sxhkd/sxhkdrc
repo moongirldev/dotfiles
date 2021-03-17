@@ -12,7 +12,7 @@ super + shift + Return
 
 # program launcher
 super + d
-	rofi -show drun -font "pointfree Regular 11"
+	rofi -show drun -font "mononoki Bold 11.1"
 
 #
 
