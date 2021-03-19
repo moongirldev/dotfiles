@@ -2,8 +2,7 @@
 
 sxhkd &
 /home/gobolin/.config/picom/launch.sh &
-polybar -r wpgtk &
-polybar -r bottom &
+/home/gobolin/.config/polybar/launch.sh &
 conky &
 wal -R &
 #panel &
