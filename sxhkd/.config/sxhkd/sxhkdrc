@@ -14,6 +14,8 @@ super + shift + Return
 super + d
 	rofi -show drun -font "mononoki Bold 11.1"
 
+super + z
+    bwmenu -c 60 --auto-lock 1800 -- -font "mononoki Bold 11.1"
 #
 
 #media control

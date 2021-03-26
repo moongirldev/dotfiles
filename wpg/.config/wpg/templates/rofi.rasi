@@ -18,8 +18,8 @@ configuration {
 	matching: "normal";
 	separator-style: "none";
 	scrollbar-width: 0;
-	color-normal: "#161520, #fffdf2, #161520, #cbaeae, #fffdf2";
-	color-urgent: "#161520, #d6b48d, #22231D, #d6b48d, #fffdf2";
+	color-normal: "#161520, #ffffff, #161520, #cbaeae, #ffffff";
+	color-urgent: "#161520, #d6b48d, #22231D, #d6b48d, #ffffff";
 	color-active: "#161520, #a0e9ff, #161520, #a0e9ff, #161520";
 	color-window: "#161520, #cbaeae, #8b7777";
 	kb-mode-next: "Shift+Right,Control+Tab,Alt+l";
