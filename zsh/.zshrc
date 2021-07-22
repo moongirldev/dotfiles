@@ -13,7 +13,7 @@ zstyle :compinstall filename '/home/gobolin/.zshrc'
 
 autoload -Uz compinit
 compinit
-cat /home/gobolin/.cache/wal/sequences
+#cat /home/gobolin/.cache/wal/sequences
 # End of lines added by compinstall
 
 bindkey '\e[A' history-beginning-search-backward
@@ -60,7 +60,7 @@ GEOMETRY_PLUGIN_HYDRATE_COLOR=blue
 GEOMETRY_PLUGIN_HYDRATE_SYMBOL=💧
 GEOMETRY_PLUGIN_HYDRATE_INTERVAL=2  # interval in minutes
 
-zinit load MichaelAquilina/zsh-auto-notify
+#zinit load MichaelAquilina/zsh-auto-notify
 zinit load zsh-users/zsh-autosuggestions
 
 #zinit load marlonrichert/zsh-autocomplete
@@ -69,7 +69,10 @@ zinit load zsh-users/zsh-autosuggestions
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
-. "/home/gobolin/.local/share/lscolors.sh"
+#. "/home/gobolin/.local/share/lscolors.sh"
+export LS_COLORS="$(vivid generate snazzy)"
 alias ls='ls --color=auto'
 alias ll='ls -l --color=auto'
 alias la='ls -a --color=auto'
+alias cat="batcat"
+alias yay="sudo pacapt"
