@@ -9,11 +9,17 @@ unsetopt beep
 bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/gobolin/.zshrc'
+
+zstyle ':completion:*' completer _complete _ignored _approximate
+zstyle ':completion:*' format '%d'
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}'
+zstyle ':completion:*' menu select=1
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+zstyle :compinstall filename '/Users/moongirl/.zshrc'
 
 autoload -Uz compinit
-compinit
-#cat /home/gobolin/.cache/wal/sequences
+#compinit
 # End of lines added by compinstall
 
 bindkey '\e[A' history-beginning-search-backward
@@ -32,6 +38,10 @@ source "$HOME/.zinit/bin/zinit.zsh"
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
+hostname_local () {
+echo moongirl@$(scutil --get LocalHostName)
+}
+
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
 zinit light-mode for \
@@ -47,11 +57,11 @@ zinit light geometry-zsh/geometry
 zinit light jedahan/geometry-hydrate
 
 GEOMETRY_PROMPT_PLUGINS=(hydrate)
-GEOMETRY_PROMPT=(geometry_status geometry_hostname geometry_newline geometry_path) # redefine left prompt
+GEOMETRY_PROMPT=(geometry_status hostname_local geometry_newline geometry_path) # redefine left prompt
 GEOMETRY_RPROMPT=(geometry_exec_time geometry_git hydrate)      # append exec_time and pwd right prompt
 
-GEOMETRY_STATUS_SYMBOL="ﳝ"             # default prompt symbol
-GEOMETRY_STATUS_SYMBOL_ERROR="ﳞ"       # displayed when exit value is != 0
+GEOMETRY_STATUS_SYMBOL="🌙"             # default prompt symbol
+GEOMETRY_STATUS_SYMBOL_ERROR="🌑"       # displayed when exit value is != 0
 GEOMETRY_STATUS_COLOR_ERROR="yellow"  # prompt symbol color when exit value is != 0
 GEOMETRY_STATUS_COLOR=geometry::hostcolor        # prompt symbol color
 GEOMETRY_STATUS_COLOR_ROOT="red"       # root prompt symbol color
@@ -76,3 +86,4 @@ alias ll='ls -l --color=auto'
 alias la='ls -a --color=auto'
 alias cat="batcat"
 alias yay="sudo pacapt"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
