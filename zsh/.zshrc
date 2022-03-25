@@ -39,7 +39,11 @@ autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 
 hostname_local () {
-echo moongirl@$(scutil --get LocalHostName)
+if type "scutil" > /dev/null; then
+	echo moongirl@$(scutil --get LocalHostName)
+else
+	echo geometry_hostname
+fi
 }
 
 # Load a few important annexes, without Turbo
@@ -54,11 +58,9 @@ zinit light-mode for \
 GEOMETRY_COLOR_DIR=geometry::hostcolor
 zinit ice wait"0" lucid atload"geometry::prompt"
 zinit light geometry-zsh/geometry
-zinit light jedahan/geometry-hydrate
 
-GEOMETRY_PROMPT_PLUGINS=(hydrate)
-GEOMETRY_PROMPT=(geometry_status hostname_local geometry_newline geometry_path) # redefine left prompt
-GEOMETRY_RPROMPT=(geometry_exec_time geometry_git hydrate)      # append exec_time and pwd right prompt
+GEOMETRY_PROMPT=(geometry_status geometry_hostname geometry_newline geometry_path) # redefine left prompt
+GEOMETRY_RPROMPT=(geometry_exec_time geometry_git)      # append exec_time and pwd right prompt
 
 GEOMETRY_STATUS_SYMBOL="🌙"             # default prompt symbol
 GEOMETRY_STATUS_SYMBOL_ERROR="🌑"       # displayed when exit value is != 0
@@ -87,3 +89,13 @@ alias la='ls -a --color=auto'
 alias cat="batcat"
 alias yay="sudo pacapt"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zdharma-continuum/zinit-annex-as-monitor \
+    zdharma-continuum/zinit-annex-bin-gem-node \
+    zdharma-continuum/zinit-annex-patch-dl \
+    zdharma-continuum/zinit-annex-rust
+
+### End of Zinit's installer chunk
