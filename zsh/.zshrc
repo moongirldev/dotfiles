@@ -59,6 +59,8 @@ GEOMETRY_COLOR_DIR=geometry::hostcolor
 zinit ice wait"0" lucid atload"geometry::prompt"
 zinit light geometry-zsh/geometry
 
+#zinit light spaceship-prompt/spaceship-prompt
+
 GEOMETRY_PROMPT=(geometry_status geometry_hostname geometry_newline geometry_path) # redefine left prompt
 GEOMETRY_RPROMPT=(geometry_exec_time geometry_git)      # append exec_time and pwd right prompt
 
@@ -86,8 +88,13 @@ export LS_COLORS="$(vivid generate snazzy)"
 alias ls='ls --color=auto'
 alias ll='ls -l --color=auto'
 alias la='ls -a --color=auto'
-alias cat="batcat"
 alias yay="sudo pacapt"
+
+if type "scutil" > /dev/null; then 
+	alias love="open -n -a love"
+	alias cat="bat"
+fi
+
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Load a few important annexes, without Turbo
