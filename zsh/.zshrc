@@ -21,9 +21,10 @@ SAVEHIST=20000
 setopt autocd nomatch
 unsetopt beep
 bindkey -v
-bindkey  "^[OH"   beginning-of-line
-bindkey  "^[OF"   end-of-line
 # End of lines configured by zsh-newuser-install
+
+bindkey '\e[A' history-search-backward
+bindkey '\e[B' history-search-forward
 
 ### Added by Zinit's installer
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
@@ -84,6 +85,10 @@ zinit light zsh-users/zsh-autosuggestions
 
 ## End Other Plugins
 
+## Setting Path
+
+export PATH=/Users/moongirl/.local/bin:$PATH
+
 
 ## LS_COLORS
 if type "scutil" > /dev/null; then
@@ -100,6 +105,9 @@ alias yay="sudo pacapt"
 if type "scutil" > /dev/null; then
         alias love="open -n -a love"
         alias cat="bat"
+        alias vim="lvim"
+	bindkey  "^[OH"   beginning-of-line
+	bindkey  "^[OF"   end-of-line
 fi
 
 ##End Alias Section
